@@ -6,9 +6,15 @@
 
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
+import { PortfolioProvider } from "../components/common/context/context";
+import { prefix } from "../config/config";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <PortfolioProvider value={{ prefix }}>
+      <Component {...pageProps} />;
+    </PortfolioProvider>
+  );
 }
 
 export default MyApp;
